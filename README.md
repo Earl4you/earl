@@ -72,7 +72,7 @@ Variables are defined with the built-in verb "varies.".  For example:  "age" var
 The value of a variable is set with !    For example:  21 age ! (stores 21 into variable age)
 The value of a variable is fetched with @   For example:  age @ (puts the value stored in age on the operand stack)
 
-Arrays reuse "varies" the syntax but with intervining limits and dimensionality. For example:
+Arrays reuse "varies" the syntax but with intervening limits and dimensionality. For example:
 "altitude" 50 50 2 varies.
 would define a 2 dimensional array which is 50 by 50 named "altitude".   For example to fetch and print the [5, 7] element one could type:
 5 7 age @ %
