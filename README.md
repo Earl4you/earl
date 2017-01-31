@@ -39,7 +39,7 @@ ATTRIBUTES of EARL
   
   EARL is extended by the user who writes "user verbs" which string together built-in verbs and other user verbs.  The user verbs are "compiled" in a PC development environment and eventually transmitted as part of the complete execution package for the target (Arduino).   The PC development environment may include a simulator of the target environment.
   
-  EARL, in this repository, handles 32 bit integers, 32 bit floats, and pointers.  Information is mostly passed by an "operand stack".  The operand stack keeps track and the built-in verbs try to cover the various possibilities at some cost in speed but great benefit in code compactness.  (Like many attributes, this may be modified by easy variants of the code.)
+  EARL, in this repository, handles 32 bit integers, 32 bit floats, and pointers.  Information is mostly passed by an "operand stack".  The operand stack keeps track of the type and the built-in verbs try to cover the various possibilities at some cost in speed but great benefit in code compactness.  (Like many attributes, this may be modified by easy variants of the code.)
   
   EARL allows the declaration and use of variables and arrays of variables.
   
