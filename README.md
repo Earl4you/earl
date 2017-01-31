@@ -51,14 +51,14 @@ SYNTAX (on a PC or other development platform)
 
 EARL programs are expressed as "user verbs" which are defined in a program file (or typed in) and result in a package that is loaded onto an Arduino device where it executes.  The definition of a user verb begins with the "built-in" verb "means" and it ends with a period.  The "means" verb expects a pointer to a string on the top of the stack (and here it is meant the top of the stack during the operation of a simulator in the PC environment).   Here is a line by line example:
   (Parentheses mean commentary material.  White space separates verb names.)
-  "double"    (create a string "double" and place a pointer to it on the top of the operand stack)
+  "triple"    (create a string "triple" and place a pointer to it on the top of the operand stack)
   means       (execute the built-in verb "means" which starts the definition of a user verb whose name is on the stack)
-  dup         (duplicate the top of stack)
-  +           (add the two top stack elements)
+  dup dup     (duplicate the top of stack twice)
+  + +         (add the two top stack elements, two times)
   %           (print the answer, and drop it from the stack)
   .           (this is the end of the definition)
 If one then typed at a prompt the line:
-3 double
+2 triple
 there would appear a response:
 6
 
@@ -72,13 +72,13 @@ Variables are defined with the built-in verb "varies.".  For example:  "age" var
 The value of a variable is set with !    For example:  21 age ! (stores 21 into variable age)
 The value of a variable is fetched with @   For example:  age @ (puts the value stored in age on the operand stack)
 
-Arrays reuse "varies" the syntax but with intervening limits and dimensionality. For example:
-"altitude" 50 50 2 varies.
-would define a 2 dimensional array which is 50 by 50 named "altitude".   For example to fetch and print the [5, 7] element one could type:
+Arrays reuse the "varies." syntax but with intervening limits and dimensionality. For example:
+"altitude" 50 60 2 varies.
+would define a 2 dimensional array which is 50 by 60 named "altitude".   For example to fetch and print the [5, 7] element one could type:
 5 7 age @ %
 Element indexing is zero based.
 
-The type (long integer or float) of a variable is set each time a value or an element value is stored into it.  (Be careful!)
+The type (long integer, float, pointer) of a variable is set each time a value or an element value is stored into it.  (Be careful!)
 
 The built-in verb "library" expects to find the pointer to a string on to stack.   That string is taken as the name of a file which is added to a list of library files.  They are processed repeatedly each time a user verb is defined or a source file is processed.  User verbs from a library file are compiled only if they are referenced by existing user verbs.
 
